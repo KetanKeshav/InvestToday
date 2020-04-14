@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> DBMS Project</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/full-slider.css" rel="stylesheet">
+
+  </head>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: #000000;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #000000 !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:100px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@media screen and (max-width: 600px) {
+  .topnav .login-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .login-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px 0 30px 0;
+} 
+
+
+input,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 175px;
+}
+
+/* text inside the vertical line */
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+}
+
+        @font-face {
+            font-family: 'WebRupee';
+            src: url('WebRupee.V1.0.eot');
+            src: local('WebRupee'), url('../css/WebRupee.V1.0.ttf') format('truetype');
+        }
+
+        .WebRupee {
+            font-family: 'WebRupee';
+        }
+
+        @font-face {
+            font-family: 'AvenirNextLTPro-Regular';
+            src: url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Regular.eot?#iefix') format('embedded-opentype'), url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Regular.otf') format('opentype'),
+            url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Regular.woff') format('woff'), url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Regular.ttf') format('truetype'), url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Regular.svg#AvenirNextLTPro-Regular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'HelveticaNeueLTCom-Md';
+            src: url('/content/jsp/LP/lpn/fonts/HelveticaNeueLTCom-Md.eot?#iefix') format('embedded-opentype'), url('/content/jsp/LP/lpn/fonts/HelveticaNeueLTCom-Md.woff') format('woff'), url('/content/jsp/LP/lpn/fonts/HelveticaNeueLTCom-Md.ttf') format('truetype'), url('/content/jsp/LP/lpn/fonts/HelveticaNeueLTCom-Md.svg#HelveticaNeueLTCom-Md') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'AvenirNextLTPro-Demi';
+            src: url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Demi.eot?#iefix') format('embedded-opentype'), url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Demi.otf') format('opentype'),
+            url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Demi.woff') format('woff'), url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Demi.ttf') format('truetype'), url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Demi.svg#AvenirNextLTPro-Demi') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'AvenirNextLTPro-Regular';
+            src: url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Regular.eot?#iefix') format('embedded-opentype'),
+            url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Regular.otf') format('opentype'),
+            url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Regular.woff') format('woff'),
+            url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Regular.ttf') format('truetype'),
+            url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Regular.svg#AvenirNextLTPro-Regular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'HelveticaNeueLTCom-Md';
+            src: url('/content/jsp/LP/lpn/fonts/HelveticaNeueLTCom-Md.eot?#iefix') format('embedded-opentype'),
+            url('/content/jsp/LP/lpn/fonts/HelveticaNeueLTCom-Md.woff') format('woff'),
+            url('/content/jsp/LP/lpn/fonts/HelveticaNeueLTCom-Md.ttf') format('truetype'),
+            url('/content/jsp/LP/lpn/fonts/HelveticaNeueLTCom-Md.svg#HelveticaNeueLTCom-Md') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'AvenirNextLTPro-Demi';
+            src: url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Demi.eot?#iefix') format('embedded-opentype'),
+            url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Demi.otf') format('opentype'),
+            url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Demi.woff') format('woff'),
+            url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Demi.ttf') format('truetype'),
+            url('/content/jsp/LP/lpn/fonts/AvenirNextLTPro-Demi.svg#AvenirNextLTPro-Demi') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .mytable1 {
+            width: 100%
+        }
+
+        table.mytable1 td {
+            background: #fcfcfc none repeat scroll 0 0;
+            color: #333;
+
+        }
+
+        table.mytable1 td, table.mytable1 th {
+            border: 1px solid #ccc;
+            font-size: 14px;
+            padding: 16px 15px;
+            vertical-align: top;
+        }
+
+        table.mytable1 {
+            border-collapse: collapse;
+        }
+
+        ul {
+            line-height: 23px;
+            list-style-image: url("https://s3-ap-southeast-1.amazonaws.com/fundsindia/images-new/check-mark-3-512.gif");
+            font-weight: bold;
+        }
+
+        .orange {
+            font-size: 44px;
+            padding: 0px 8px 0px 8px;
+            color: #e3fe00;
+            padding: 0px;
+        }
+
+        .orange2 {
+            font-size: 54px;
+            padding: 0px 8px 0px 8px;
+            color: #e3fe00;
+            padding: 0px;
+        }
+
+        .datetext {
+            text-align: right;
+            float: right;
+            text-transform: none;
+            font-size: 11px;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .myButton {
+            -moz-box-shadow: inset 0px 1px 0px 0px #54a3f7;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #54a3f7;
+            box-shadow: inset 0px 1px 0px 0px #54a3f7;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1), color-stop(1, #0061a7));
+            background: -moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+            background: -webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+            background: -o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+            background: -ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+            background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1', endColorstr='#0061a7', GradientType=0);
+            background-color: #007dc1;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            border: 1px solid #124d77;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 28px;
+            padding: 6px 24px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: bold;
+            text-shadow: 0px 1px 0px #154682;
+            margin: 10px;
+        }
+
+        .myButton:hover {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));
+            background: -moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+            background: -webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+            background: -o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+            background: -ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+            background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1', GradientType=0);
+            background-color: #0061a7;
+            color: #ccc;
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+
+        .whitetxt {
+            font-size: 18px;
+            letter-spacing: 1px;
+            font-weight: normal;
+            color: #fff;
+        }
+        
+        .banimgnew{margin:0px 0px 0px 0px}
+        
+       
+
+        .goldban {
+            float: right;
+            margin: 124px 0px 0px 0px;
+        }
+
+        .organgetext {
+            color: #e6fa03;
+            font-size: 55px;
+        }
+
+        .bluetxt {
+            color: #0d54a0;
+            font-size: 25px;
+            font-family: "AvenirNextLTPro-Regular"
+        }
+
+        .imgresponsive {
+            width: 100%;
+        }
+
+        * {
+            outline: none;
+            border: none
+        }
+
+        .bg {
+            background: url(/content/jsp/LP/images/buildwealthimg.png) repeat-x;
+            height: 431px;
+            width: 100%
+        }
+
+        .bgmainimage {
+            /*background-image: url(//s3-ap-southeast-1.amazonaws.com/fundsindia/LP/images/buildwealthimgnew.png);*/
+            background-repeat: no-repeat;
+            background-position: 25%;
+        }
+
+        .bgmain {
+                         background-image: url(https://cdn.fundsindia.com/LP/buildwealth/buildwealthbannerbg.png);
+
+            background-repeat:repeat-x;
+            background-color: #706a7f;
+            
+            
+        }
+
+        .bannerbg {
+            background-image: url(https://s3-ap-southeast-1.amazonaws.com/fundsindia/LP/images/savetaximg.png);
+            background-repeat: no-repeat;
+            height: 70%;
+            background-position: center bottom;
+        }
+
+        .imgrenponsive {
+            width: 100%;
+            position: absolute;
+            z-index: -1;
+            height: 431px
+        }
+
+        .formbg {
+            background: #fff;
+            border-radius:2px;
+            padding: -12px 50px;
+            margin-top: 6%;
+            margin-bottom: 0px;
+            padding-bottom: 5px;
+        }
+
+        .h3 {
+            font-family: 'AvenirNextLTPro-Demi';
+            font-size: 18px;
+            color: #3a3842;
+            text-align: center
+        }
+        
+        .sipimg{width: 53%;
+    margin: 20% 0;}
+
+        .input {
+            width: 100%;
+           /* border-bottom: 1px solid #fff;*/
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            color:#fff;
+            padding: 5px 10px 5px 10px;
+            margin-top: 10px;
+            border:1px solid #d3d0de;
+            background-color:#6b628a;
+           
+        }
+        
+        ::placeholder{color:#5b6a60;}
+
+        .register-button {
+            border-radius: 0px;
+            background: #51785f;
+            padding: 13px 32px 8px 32px;
+            text-align: center;
+            font-size: 20px;
+            font-family: 'HelveticaNeueLTCom-Md';
+            color: #fff;
+            border: none;
+            margin-top: 20px
+        }
+
+        .formp {
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            padding: 12px 0 5px 0
+        }
+
+        .formp a {
+            color: #555555;
+            text-decoration: underline
+        }
+
+        .formp a:hover {
+            color: #fff;
+            text-decoration: underline
+        }
+
+        .h1banner {
+            color: #fff;
+            font-family: "HelveticaNeueLTCom-Md";
+            font-size: 28px;
+            letter-spacing: -1px;
+            padding-top: 58px;
+            text-align: left;
+        }
+
+        .h3banner {
+            font-family: 'AvenirNextLTPro-Demi';
+            font-size: 20px;
+            color: #fff;
+            margin-top: 18px;
+            margin-bottom: 18px
+        }
+
+        .h2mid {
+            font-size: 24px;
+            color: #0d54a0;
+            text-align: center;
+            padding: 20px 0
+        }
+
+        .h3mid {
+            font-family: 'HelveticaNeueLTCom-Md';
+            font-size: 18px;
+            color: #0d54a0;
+            text-align: center;
+            padding: 0px 0
+        }
+
+        .h3gray {
+            font-family: 'HelveticaNeueLTCom-Md';
+            font-size: 16px;
+            color: #333;
+        }
+
+        .h3graybold {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold
+        }
+
+        .h3blue {
+            font-family: 'HelveticaNeueLTCom-Md';
+            font-size: 16px;
+            color: #0d54a0;
+        }
+
+        .conleft {
+            float: left;
+            width: 35%;
+        }
+
+        .conright {
+            float: right;
+            width: 60%;
+            clear: right;
+        }
+
+        .mytable {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .mytable th {
+            font-size: 14px;
+            color: #494949;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .mytable td {
+            font-size: 14px;
+            color: #494949;
+            padding: 10px 10px;
+            text-align: center
+        }
+
+        .tablehead {
+            border-radius: 15px;
+            background: #c5e7d0;
+            padding: 13px 10px;
+            margin-right: 10px
+        }
+
+        .greenhead {
+            border-radius: 15px;
+            height: 168px;
+            background: #0463bd;
+            color: #fff;
+            font-size: 25px;
+            padding: 13px 10px;
+            margin-right: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .greenhead2 {
+            border-radius: 15px;
+            height: 168px;
+            background: #0099bd;
+            color: #fff;
+            font-size: 25px;
+            padding: 13px 10px;
+            margin-right: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .greenhead3 {
+            border-radius: 15px;
+            height: 168px;
+            background: #2b5c72;
+            color: #fff;
+            font-size: 25px;
+            padding: 13px 10px;
+            margin-right: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .tabledis {
+            font-size: 12px;
+            border-top: 1px solid #cacaca;
+            color: #999898;
+            padding-top: 10px;
+            margin-top: 25px;
+            padding-bottom: 10px;
+            margin-bottom: 0;
+        }
+
+        .pbold {
+            color: #2a2a2a;
+            font-weight: bold;
+            margin-bottom: 4px
+        }
+
+        .pbold1 {
+            color: #2a2a2a;
+            font-weight: bold;
+            margin-bottom: 4px;
+            text-align: left
+        }
+
+        .p {
+            color: #8c8c8c;
+            text-align: center
+        }
+
+        .featurebox {
+            background: #f9f7f2;
+            padding: 30px;
+            margin-bottom: 30px
+        }
+
+        .footerp {
+            font-size: 11px;
+            color: #8c8c8c;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center
+        }
+
+        .footerp a {
+            color: #8c8c8c;
+            text-decoration: underline
+        }
+
+        .footerp a:hover {
+            color: #8c8c8c;
+            text-decoration: underline
+        }
+
+        .testip {
+            font-size: 14px;
+            color: #605343;
+            padding-left: 15px
+        }
+
+        .tstibox {
+            background: #f3f3f3;
+            padding-left: 0;
+            height: 209px
+        }
+
+        .imresponsive {
+            width: 100%
+        }
+
+        .footerfix {
+            padding: 20px 0 0 0;
+            background: #fbfaf9;
+            margin-top: 30px
+        }
+
+        .panel-heading, .panel-group .panel {
+            border-radius: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .panel {
+            box-shadow: none
+        }
+
+        .panel-default > .panel-heading {
+            border: none
+        }
+
+        .panel-title {
+            padding: 10px 15px
+        }
+
+        .panel-heading a {
+            color: #535353;
+            font-size: 18px;
+            text-decoration: none
+        }
+
+        .panel-heading a:hover {
+            color: #535353;
+            font-size: 18px;
+            text-decoration: none
+        }
+
+        .panel-group .panel + .panel {
+            margin-top: 2px
+        }
+
+        .acc-p {
+            text-align: center
+        }
+
+        .number-mo {
+            display: none
+        }
+
+        .tablemobile {
+            display: none
+        }
+
+        .mo-reg {
+            display: none
+        }
+
+        .tabledesk {
+            display: block
+        }
+
+        .testi-mobile {
+            display: none
+        }
+
+        .h1360 {
+            display: none
+        }
+
+        .h1800 {
+            display: none
+        }
+
+        .h1max {
+            display: block
+        }
+
+        .arrow {
+            padding-left: 61px;
+            margin-top: -1px
+        }
+
+        .con-top {
+            margin-top: 0px
+        }
+
+        .navbar-fixed-top {
+            box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3)
+        }
+
+        .greenhead, .greenhead2, .greenhead3 {
+            margin: 5px;
+        }
+
+        .tax {
+            
+        }
+
+        ::-webkit-input-placeholder {
+            color: #fff;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #fff;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #fff;
+        }
+
+        :-ms-input-placeholder {
+            color: #fff;
+        }
+
+        input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+            background-color: rgb(250, 255, 189);
+            background-image: none;
+            color: #000;
+        }
+
+        .investingsedostimobile {
+            display: none;
+        }
+
+        @media only screen and (min-width: 1280px) {
+
+            .bgmain {
+                
+                background-position: 35%;
+            }
+
+            .tax {
+                
+            }
+
+        }
+
+        @media only screen and (min-width: 1028px) {
+            .con-top {
+                width: 1034px
+            }
+
+            .con-mid {
+                width: 1170px
+            }
+        }
+         @media only screen and (max-width: 1024px) {
+        
+         .banimgtab{width:40%; margin:0px 8px -44px -9px}
+         
+         .formbg{margin:3% 0;}
+         
+         }
+
+        @media only screen and (max-width: 980px) {
+            .footerfix {
+                margin-top: 60px
+            }
+
+            .h1banner {
+                padding-top: 7px
+            }
+
+            .awardimg {
+                width: 100%
+            }
+
+            .tax {
+                padding: 50px 10px 10px 10px;
+            }
+
+            .awardimg {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 800px) {
+            .h1800 {
+                display: block
+            }
+
+            .h1max {
+                display: none
+            }
+
+            .h1banner {
+                font-size: 25px;
+                padding-top: 15px
+            }
+
+            .tax {
+                padding: 50px 10px 10px 10px;
+            }
+
+            .awardimg {
+                width: 100%;
+            }
+            
+            .sipimg {
+    width: 100%;
+    margin: 20% 0;
+}
+            
+            .banimgtab{display:none;}
+        }
+
+        @media only screen and (max-width: 767px) {
+            .number-desk {
+                display: none !important;
+            }
+
+            .number-mo {
+                display: block !important;
+            }
+
+            .tablemobile {
+                display: block
+            }
+
+            .tabledesk {
+                display: none
+            }
+
+            .bgmain {
+                background-position: center;
+                background-size: cover;
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .bgmain {
+                background-position: 100%;
+                background-size: cover;
+                min-height: 500px;
+            }
+
+            .bgmainimage {
+               
+                background-color: #6f697d;
+            }
+
+            .formrightalign {
+                text-align: center;
+            }
+
+            .h1360 {
+                display: none
+            }
+
+            .awardimg {
+                width: 50%;
+            }
+        }
+
+        @media only screen and (max-width: 768px) and (min-width: 640px) {
+            .formrightalign {
+                margin-right: 0;
+                margin-left: -22px
+            }
+
+            .tax {
+                padding: 50px 10px 10px 10px;
+            }
+
+            .awardimg {
+                width: 100%;
+            }
+
+            .bgmain {
+                min-height: auto;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .formbg {
+               
+            }
+        }
+
+        @media only screen and (max-width: 640px) {
+
+            .investingsedosti {
+                display: none;
+            }
+
+            .investingsedostimobile {
+                left: 0;
+                right: 0;
+                text-align: center;
+                font-size: 14px;
+                left: 20px;
+                color: #ccc;
+                font-weight: 500;
+                font-size: 18px;
+                font-style: italic;
+                letter-spacing: .04em;
+                display: block;
+
+            }
+
+            .formbg {
+                padding: 0 20px;
+            }
+
+            .formdesk {
+                display: none
+            }
+
+            .featurebox {
+                text-align: center
+            }
+
+            .number-desk {
+                display: none
+            }
+
+            .number-mo {
+                display: block
+            }
+
+            .tablemobile {
+                display: block;
+                margin: 5px;
+            }
+
+            .tabledesk {
+                display: none
+            }
+
+            .logo {
+                width: 139px
+            }
+
+            .h1banner {
+                font-size: 27px;
+                text-align: center;
+                padding-top: 10px
+            }
+
+            .h3banner {
+                display: none
+            }
+
+            .award {
+                text-align: center
+            }
+
+            .awardimg {
+                width: 100%;
+            }
+
+            .register-button {
+                font-size: 16px;
+            }
+
+            .h2mid {
+                font-size: 18px
+            }
+
+            .mo-reg {
+                display: block;
+            }
+
+            .formp {
+                color: #fff
+            }
+
+            .testi-desk {
+                display: none
+            }
+
+            .featurebox {
+                margin-bottom: 0
+            }
+
+            .footerfix {
+                margin-top: 0
+            }
+
+            .testi-mobile {
+                display: block
+            }
+
+            .formbg {
+                margin-bottom: 0
+            }
+
+            .imgrenponsive {
+                width: auto;
+                height: auto
+            }
+
+            .bgmain {
+                background-position: center;
+            }
+
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+
+            .arrow {
+                display: none
+            }
+
+            /*.formdeskmo { position:absolute; z-index:10; top:358%} */
+            .topcon2 {
+                margin-top: 60%
+            }
+
+            .register-button {
+                background: #51785f;
+                border:1px solid #fff;
+            }
+
+            /*.con-midtop { margin-top:60% }*/
+            .goldban {
+                float: right;
+                margin: 84px 0 0;
+                width: 51%;
+            }
+
+            .imgresponsive {
+                width: 100%;
+                margin: auto;
+                text-align: center;
+            }
+
+            .award {
+            }
+
+            .bannerbg {
+                background-image: none;
+            }
+
+            .tax {
+                padding: 50px 10px 10px 10px;
+            }
+
+            .awardimg {
+                width: 70%;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .tax {
+                padding: 50px 10px 0px -10px;
+            }
+
+            .awardimg {
+                width: 65%;
+            }
+
+            /*.mo-reg{text-align: left; float: left;}*/
+
+        }
+
+        @media only screen and (max-width: 600px) and (min-width: 481px) {
+            .bgmain {
+                background-size: cover;
+            }
+        }
+
+        @media only screen and (max-width: 480px) and (min-width: 359px) {
+            .h1banner {
+                padding-top: 0;
+            }
+
+            .register-button {
+                font-size: 16px;
+                margin-top: 0px;
+            }
+
+            .formbg {
+                margin-top: 60%;
+            }
+
+            .goldban {
+                float: right;
+                margin: 25px 0 0;
+                width: 51%;
+            }
+
+            .topcon2 {
+                margin-top: 76%
+            }
+
+            .conleft {
+                float: left;
+                width: 100%;
+            }
+
+            .conright {
+                width: 100%;
+                float: left;
+            }
+        }
+
+        @media only screen and (max-width: 360px) {
+            .h1banner {
+                font-size: 26px
+            }
+
+            .h1360 {
+                display: block
+            }
+
+            .h1800 {
+                display: none
+            }
+
+            .formdeskmo {
+                top: 190%
+            }
+
+            .goldban {
+                margin: 0px;
+                display: none;
+            }
+
+            .conleft {
+                float: none;
+                width: 100%;
+            }
+
+            .conright {
+                float: none;
+                width: 100%;
+                clear: right;
+            }
+
+            table.mytable td, table.mytable th {
+                font-size: 12px;
+                padding: 7px 3px
+            }
+
+            table.mobiletable td, table.mobiletable th {
+                font-size: 12px;
+                padding: 7px 3px
+            }
+
+            .topcon2 {
+                margin-top: 101%
+            }
+
+            .awardimg {
+                width: 107%;
+                margin-top: 50px;
+            }
+
+            .award {
+                display: block;
+            }
+
+            .tax {
+                padding-top: 80px
+            }
+
+            .bluetxt {
+                color: #0d54a0;
+                font-family: "AvenirNextLTPro-Regular";
+                font-size: 12px;
+                font-weight: bold;
+                vertical-align: top;
+            }
+
+            .tax {
+                padding: 50px 10px 10px 10px;
+            }
+
+            .awardimg {
+                width: 100%;
+            }
+
+            .bgmain {
+                width: 100%;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+
+            .h4 {
+                font-size: auto;
+                font-weight: bold;
+            }
+
+            .award {
+                text-align: left;
+            }
+
+            .mo-reg {
+                text-align: center;
+                float: none;
+            }
+        }
+
+        @media only screen and (max-width: 360px) and (min-width: 320px) {
+            .award {
+                margin-bottom: 0px;
+                margin-top: 0px
+            }
+
+        }
+
+        @media only screen and (max-width: 360px) and (min-width: 321px) {
+            .h1banner {
+                padding-top: 58px;
+                font-size: 30px
+            }
+
+            .award {
+                padding-bottom: 15px
+            }
+
+            .formbg {
+                margin-top: 50%;
+            }
+
+        }
+
+        @media only screen and (max-width: 320px) {
+            .formbg {
+                margin-top: 60px;
+            }
+
+            .h1banner {
+                padding-top: 24px
+            }
+
+            .formdeskmo {
+                top: 260%
+            }
+
+            .topcon2 {
+                margin-top: 131%
+            }
+
+            .tablehead {
+                background: none;
+            }
+
+            tablemobile {
+                display: block;
+                margin: 5px;
+            }
+
+            .orange {
+                color: #e3fe00;
+                font-size: 41px;
+                padding: 0;
+            }
+
+            .awardimg {
+                width: 100%
+            }
+
+            .award {
+                display: block;
+            }
+
+            .greenhead, .greenhead2, .greenhead3 {
+                margin: 5px;
+            }
+
+            .mytable1 {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .bluetxt {
+                color: #0d54a0;
+                font-family: "AvenirNextLTPro-Regular";
+                font-size: 12px;
+            }
+
+            .h4 {
+                font-size: auto;
+            }
+        }
+
+        .conservative .highcharts-tooltip path {
+            fill: #39b06d !important;
+            stroke: #39b06d !important;
+        }
+
+        .moderate .highcharts-tooltip path {
+            fill: #0a4e8f !important;
+            stroke: #0a4e8f !important;
+        }
+
+        #graph .per-buttons button {
+            width: 230px;
+        }
+
+        #graph .per-buttons {
+            position: absolute;
+            top: 511px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            left: 0;
+        }
+
+        #result .colum-group {
+            width: 100%;
+            display: block;
+            position: absolute;
+            left: 0;
+        }
+
+        #result .inline {
+            float: none;
+        }
+
+        #result .colum-group-inner {
+            display: block;
+            overflow: hidden;
+            width: 75%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #result .col {
+            display: inline-block;
+            float: none;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        #result span.title {
+            display: block;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            /* margin-top: 0px; */
+        }
+
+        #result .col .dec.button {
+            margin-left: 0px;
+        }
+
+        #result .col .button, #result .col .button_mon {
+            top: -17px;
+            display: inline-block;
+        }
+
+        /* According to height responsiveness (For Invest now button visiblility) */
+        @media only screen and (max-height: 320px) {
+            .tax {
+                padding: 10px 10px 10px 10px;
+            }
+
+            .awardimg {
+                width: 42%;
+            }
+
+            .register-button {
+                margin-top: 10px;
+            }
+        }
+
+        @media only screen and (max-height: 360px) {
+            .tax {
+                padding: 10px 10px 10px 10px;
+            }
+
+            .awardimg {
+                width: 61%;
+            }
+        }
+
+
+
+</style>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">INVESTTODAY</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shares.html">Shares</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mutualfunds.html">Mutual Funds</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="housing.html">Housing</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="product.html">Startup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/ketan.keshav.007">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signin.html">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signup.html">Sign up</a>
+            </li>
+          
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active">
+          <img src="Pic1.jpg" width="1550" height="900">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>“Your Gateway to a Richer Life”</h3>
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div class="carousel-item">
+            <img src="Pic3.jpg" width="1550" height="900">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Need Funding for a Startup? You have stopped at the right place!</h3>
+              <p></p>
+            </div>
+          </div>
+          <div class="carousel-item" >
+            <img src="p5.jpg" width="1550" height="900">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>JUST DO IT</h3>
+              <p></p>
+            </div>
+          </div>
+           <div class="carousel-item" >
+            <img src="p4.jpg" width="1550" height="700">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>INVESTTODAY and Live a Life Much Similar to this</h3>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </header>
+                <img src="Mutualfunds.png" width="1300" >
+        
+                 <br><br><br>
+ 
+<div class="row"> 
+    <div class="col-lg-4">
+                   <img src="award2017.png"  class="container">
+                    </div>
+
+                    <div class="col-lg-4">
+                    <img src="award2016.png" class="container">
+                    </div>
+
+                    <div class="col-lg-4">
+                      <img src="award2015.png" class="container">
+                    </div>
+</div>
+  <center><h4 class="h2mid">FREE to join, FREE to operate - manage all your mutual fund<br/>
+        investments in one place for your entire family!</h4></center>
+   <br><br><center> <p class="p">InvestToday is India's friendliest online investment platform. Here, investors (resident Indians and NRIs) get access to a wide range of Mutual Funds, Equities from
+        the Bombay Stock Exchange (BSE), Corporate Deposits from premium companies, and various other investment products in one convenient online location.</p>
+    <p class="p">InvestToday also offers a host of beneficial value-added services like free financial advisory services, flexible types of Systematic Investment Plans (SIPs),
+        trigger-based investing, Portfolio-level SIPs, SIP Designer, Value-averaging Investment Plans (VIPs), instant Portfolio X-rays, and so much more that further enrich an
+        investor's investment experience. Also, with India's most complete automated advisory service, Money Mitr, investors can get great mutual fund recommendations for lump sum
+        and SIP-investing automagically.</p>
+    <p class="p">Investing with a InvestToday account is absolutely safe and secure. The platform is registered with entities such as the Association of Mutual Funds in India
+        (AMFI), the Bombay Stock Exchange (BSE), the Credit Information Bureau Limited (CIBIL), the Central Depository Services Limited (CDSL), and the Central Insurance Repository
+        Limited (CIRL).</p>
+    <p class="p">Registering with InvestToday takes less than two minutes, what with the Aadhaar-based eKYC system. This makes investing a paperless and hassle-free process, and
+        InvestToday the best investment platform in India.</p></center>
+</div>
+<br><br>
+<center>
+<div class="container con-mid featurebox  bg-dark">
+    <div class="row">
+        <div class=" col-xs-12 col-sm-4 col-md-4">
+            <p style="color:#ffffff">FREE Registration</p>
+            <p style="color:#ffffff">That's right! It not only does not cost you to Register but to invest as well!</p>
+        </div>
+        <div class=" col-xs-12 col-sm-4 col-md-4">
+            <p style="color:#ffffff">Incredible Value-adds</p>
+            <p style="color:#ffffff">Get access to innovative SIPs, Triggers and Reports for no extra cost!</p>
+        </div>
+        <div class=" col-xs-12 col-sm-4 col-md-4">
+            <p style="color:#ffffff">Spectrum of Products</p>
+            <p style="color:#ffffff">Choose from Mutual Funds, Stocks, Deposits, Bonds, NPS, NFOs Insurance and more...</p>
+        </div>
+
+    </div>
+</div
+</center>
+
+
+ <!-- footer include strats refers NewCommonFooterTop.html -->
+        <div id="footercommontop" class="pull-left full-width"></div>
+    <!-- footer include strats refers NewCommonFooterTop.html ends -->
+
+    <div class="dialog">
+        <div class="mobileappbanner">
+            <a href="#" class="close-thik"></a> <a class="btn btn-mobilebanner btn-small" href="">Install</a></div>
+    </div>
+    <script src="https://cdn.fundsindia.com/js_home_v2/gz.jquery-1.11.1.js"></script>
+    <script src="https://cdn.fundsindia.com/js_home_v2/gz.compressednew.js"></script>
+    <script src="https://cdn.fundsindia.com/js_home_v2/gz.swiper.min.js"></script>
+    <script>
+        var BASE_PATH = 'https://' + window.location.hostname + '/';
+
+        
+
+        function createLoginUrl() {
+            return BASE_PATH + "content/jsp/registration/login.jsp#SignIn";
+        }
+
+        function createSignoutUrl() {
+            return BASE_PATH + "content/jsp/registration/userSignOutAction.do";
+        }
+
+        function createDashboardUrl() {
+            return BASE_PATH + "content/jsp/investor/InvestorPositionInfoAction.do?method=InterPageView";
+
+        }
+
+        var st = getCookie('loginInFlag');
+        if (st == 'true') {
+        //     var pathname = window.location.pathname;
+        //     if (pathname.length == 0) {
+        //         window.location.href = createDashboardUrl();
+        //     }
+            $("#signupForm").hide();
+        }
+        else {
+            $("#signupForm").show();
+        }
+    </script>
+    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "Organization", "name": "FundsIndia", "url": "https://www.fundsindia.com", "sameAs": [ "https://www.facebook.com/fundsindia", "https://twitter.com/fundsindia", "https://plus.google.com/u/3/+FundsIndiacompany", "https://www.youtube.com/user/FundsIndia", "https://www.linkedin.com/company/fundsindia", "https://www.instagram.com/fundsindia" ] }
+    </script>
+    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "LocalBusiness", "address": { "@type": "PostalAddress", "addressLocality": "Chennai, Tamil Nadu", "addressRegion": "IN", "streetAddress": "No. 38 and 39, 3rd Floor, Uttam Building, Whites Road Express Estate, Royapettah Chennai 600014" }, "description": "FundsIndia is an India's friendliest online investment platform. Get access to Mutual funds & Equities with Services like SIP Insurance, Super Savings account, Robo Advisory services, free financial advisory services, flexible types of SIPs & SIP Designer. Invest online in less than 2 minutes with Aadhaar-based eKYC system.", "name": "FundsIndia", "telephone": "076671 66166" }
+    </script>
+    <script>
+        function swiperPartners() {
+            var swiper = new Swiper('.partners-container', {
+                slidesPerView: 4,
+                simulateTouch: false,
+                loop: true,
+                spaceBetween: 15,
+                autoplay: 3000,
+                breakpoints: {
+                    1366: {
+                        slidesPerView: 4
+                    },
+                    1199: {
+                        slidesPerView: 3
+                    },
+                    991: {
+                        slidesPerView: 2
+                    },
+                    767: {
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                    },
+                    580: {
+                        slidesPerView: 1,
+                        spaceBetween: 5
+                    }
+                }
+            });
+        }
+
+        swiperPartners();
+        $(window).resize(function() {
+            swiperPartners();
+        });
+    </script>
+    <script type="text/javascript">
+        $('.launch-modal').on('click', function(e) {
+            e.preventDefault();
+            $('#' + $(this).data('modal-id')).modal();
+        });
+    </script>
+    <script>
+        $(window).load(function() {
+            $('#launcher').css("margin-bottom", "63px");
+        });
+
+        $('.inputtest').keyup(function() {
+            if (!this.value.match(/^\d+(-\d+)*$/)) {
+                this.value = this.value.replace(/^\d+(-\d+)*$/g, '');
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $('body').on('hidden.bs.modal', '.modal', function() {
+            $('video').trigger('pause');
+        });
+    </script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            if (location.hostname == 'fundsindia') {
+                if (location.protocol.toLowerCase() == 'http:') {
+                    location.href = location.href.replace('http:', 'https:');
+                }
+            }
+        });
+        $(document).ready(function() {
+            $(".nocopy").bind("cut copy paste", function(e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+    <script>
+        function getMobileOperatingSystem() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/windows phone/i.test(userAgent)) {
+                return "Windows Phone";
+            }
+
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            }
+
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+
+            return "unknown";
+        }
+        $(document).ready(function() {
+            var findOS = getMobileOperatingSystem();
+
+
+            if (findOS == "iOS") {
+                $('.btn-mobilebanner').attr("href", "https://click.google-analytics.com/redirect?tid=UA-134434-6&url=https%3A%2F%2Fitunes.apple.com%2Fin%2Fapp%2Ffundsindia%2Fid1047151768%3Fmt%3D8&aid=com.fundsindia.FundsIndia&idfa=%{idfa}&cs=website&cm=Home&cc=Mweb");
+            }
+            else
+            {
+                $('.btn-mobilebanner').attr("href", "https://play.google.com/store/apps/details?id=com.fundsindia&referrer=utm_source=website&utm_medium=Home&utm_campaign=Mweb");
+            }
+            $('.close-thik').click(function(e) {
+                $(".dialog").fadeOut('slow');
+            });
+        });
+
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) c_end = document.cookie.length;
+                    return unescape(document.cookie.substring(c_start, c_end));
+                }
+            }
+            return "";
+        }
+
+        function getMinutesCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) c_end = document.cookie.length;
+                    return unescape(document.cookie.substring(c_start, c_end));
+                }
+            }
+            return "";
+        }
+
+        function deleteMinutesCookie(c_name, path, domain) {
+            var exdate = new Date();
+            if (getMinutesCookie(c_name)) document.cookie = c_name + "=" +
+                ((path) ? ";path=" + path : "") +
+                ((domain) ? ";domain=" + domain : "") +
+                ";expires=Thu, 01-Jan-1970 00:00:01 GMT";
+        }
+    </script>
+    <script type="text/javascript">
+        var st = getCookie('loginInFlag');
+        windowWidthM = $(window).width();
+        windowHeightM = $(window).height();
+        if (st == 'true') {
+            $("#login1").remove();
+            $("#signOut").show();
+            $("#signup_nav1").hide();
+            $(".join-for-free").hide();
+            $(".mb-login-btn").hide();
+
+        } else {
+
+            if (windowWidthM < 768) {
+                $(".join-for-free").show();
+            } else {
+                $(".join-for-free").hide();
+            }
+            $("#signIn,#signup_nav1").show();
+            $("#signOut").remove();
+            $("#login1").show();
+
+        }
+    </script>
+  
+    <script type="text/javascript">
+        _linkedin_data_partner_id = "238731";
+        </script><script type="text/javascript">
+        (function()
+        {var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);}
+        )();
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=238731&fmt=gif" />
+    </noscript>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("input[type=number]").on("focus", function() {
+            $(this).on("keydown", function(event) {
+                if (event.keyCode === 38 || event.keyCode === 40) {
+                    event.preventDefault();
+                }
+             });
+           });
+         $("#footercommontop").load("footer/NewCommonFooterMF.html"); 
+    });
+
+		</script>
+
+		 <script type="text/javascript">
+    		$(function(){
+              $(':input[type=number]').on('mousewheel',function(e){ $(this).blur(); });
+            });
+     </script>
+    <script src="js_home/unsupportedBrowserNotice.js"></script>
+
+
+ <footer class="py-5 bg-dark">
+      <div class="container">
+      <p><font size="3" color="white"><center><em> Copyright &copy; KK's_INVESTTODAY_2018 </em></center></font></p>
+      <p><font size="3" color="white"><center><em> For More email me @ ketan.keshav7@gmail.com </em></center></font></p>
+      </div>
+    </footer>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+
+  </body>
+
+</html>
